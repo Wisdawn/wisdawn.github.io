@@ -1,15 +1,35 @@
-body {
+html {
   background: #1D1F20 !important;
-  color: #CECBC4 !important;
+}
+
+body,
+body.vscode-dark {
+  background: #1D1F20 !important;
+  color: #D2D0C9 !important;
   font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif !important;
-  font-size: 18px;
-  line-height: 1.65;
+  font-size: 18px !important;
+  line-height: 1.65 !important;
+}
+
+body p,
+body li,
+body blockquote,
+body td,
+body th,
+body span {
+  color: #D2D0C9 !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: #D8D4CC !important;
 }
 
-pre, code {
+pre,
+code {
   background-color: #242628 !important;
+  color: #D2D0C9 !important;
+}
+
+a {
+  color: #C8B98E !important;
 }
