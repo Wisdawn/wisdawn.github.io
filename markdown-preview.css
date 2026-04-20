@@ -1,17 +1,28 @@
-body {
-  background: #1D1F20 !important;
-  color: #FF4D4D !important;
-  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif !important;
-  font-size: 18px;
-  line-height: 1.65;
+html {
+  background: #000000 !important;
 }
 
-/* Keep headings slightly clearer */
+body,
+body.vscode-dark,
+body.vscode-light,
+body.vscode-high-contrast {
+  background: #000000 !important;
+  color: #00FF00 !important;
+}
+
+body * {
+  color: #00FF00 !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
-  color: #DDD9D1 !important;
+  color: #FFD700 !important;
 }
 
-/* Keep code blocks from looking too bright */
 pre, code {
-  background-color: #242628 !important;
+  background: #3333FF !important;
+  color: #FFFFFF !important;
+}
+
+a {
+  color: #FF66FF !important;
 }
