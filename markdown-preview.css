@@ -1,14 +1,64 @@
+:root {
+  /* Core surfaces */
+  --md-html-bg: #1d1f20;
+  --md-body-bg: #1e1e1e;
+  --md-body-color: #cecbc4;
+  --md-text-color: #d2d0c9;
+  --md-heading-color: #ddd9d0;
+  --md-strong-color: #ddd7cd;
+  --md-em-color: #cfcabf;
+
+  /*
+    Accent palette
+    Links use a muted steel blue to stay calm on a dark surface while maintaining
+    strong contrast. Inline code uses a restrained sand tone so it remains distinct
+    from links without glowing against the charcoal background.
+  */
+  --md-link-color: #86adc9;
+  --md-link-hover-color: #a4c6e1;
+  --md-link-visited-color: #a79cc8;
+  --md-link-underline-color: #6f8fa8;
+  --md-link-focus-ring: #b6d0e3;
+  --md-link-underline-thickness: 0.08em;
+  --md-link-underline-offset: 0.14em;
+
+  --md-inline-code-bg: #24282d;
+  --md-inline-code-border: #38424b;
+  --md-inline-code-color: #cdbb86;
+
+  --md-code-bg: #25282a;
+  --md-code-border: #31363a;
+  --md-pre-bg: #242628;
+  --md-pre-color: #c8d3da;
+  --md-blockquote-bg: #202325;
+  --md-blockquote-border: #5a6460;
+  --md-blockquote-color: #c7cec8;
+  --md-table-header-bg: #222528;
+  --md-table-cell-bg: #1f2123;
+  --md-table-border: #32363a;
+  --md-hr-color: #34383c;
+  --md-kbd-bg: #2a2d30;
+  --md-kbd-border: #3a3f44;
+  --md-kbd-border-bottom: #4a5056;
+  --md-kbd-color: #d4d0c8;
+  --md-font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+  --md-font-size: 18px;
+  --md-line-height: 1.65;
+  --md-inline-code-radius: 4px;
+  --md-block-radius: 6px;
+}
+
 html {
-  background: #1D1F20 !important;
+  background: var(--md-html-bg);
 }
 
 body,
 body.vscode-dark {
-  background: #1E1E1E !important;
-  color: #CECBC4 !important;
-  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif !important;
-  font-size: 18px !important;
-  line-height: 1.65 !important;
+  background: var(--md-body-bg);
+  color: var(--md-body-color);
+  font-family: var(--md-font-family);
+  font-size: var(--md-font-size);
+  line-height: var(--md-line-height);
 }
 
 /* Base text */
@@ -18,107 +68,124 @@ body blockquote,
 body td,
 body th,
 body span {
-  color: #D2D0C9 !important;
+  color: var(--md-text-color);
 }
 
-/* Headings: slightly brighter and cleaner */
+/* Headings: slightly brighter */
 h1, h2, h3, h4, h5, h6 {
-  color: #DDD9D0 !important;
+  color: var(--md-heading-color);
   letter-spacing: 0.01em;
 }
 
 /* Strong / emphasis */
 strong {
-  color: #DDD7CD !important;
-  font-weight: 700 !important;
+  color: var(--md-strong-color);
+  font-weight: 700;
 }
 
 em {
-  color: #CFCABF !important;
+  color: var(--md-em-color);
 }
 
-/* Links: muted sand/gold */
+/* Links: calm blue with a permanent underline so they are not identified by color alone */
 a {
-  color: #C8B98E !important;
+  color: var(--md-link-color);
+  text-decoration: underline;
+  text-decoration-color: var(--md-link-underline-color);
+  text-decoration-thickness: var(--md-link-underline-thickness);
+  text-underline-offset: var(--md-link-underline-offset);
 }
 
-a:hover {
-  color: #D6C79B !important;
+a:visited {
+  color: var(--md-link-visited-color);
+  text-decoration-color: var(--md-link-visited-color);
 }
 
-/* Inline code: warm muted amber */
+a:hover,
+a:focus {
+  color: var(--md-link-hover-color);
+  text-decoration-color: var(--md-link-hover-color);
+}
+
+a:focus-visible {
+  outline: 1px solid var(--md-link-focus-ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Inline code: restrained warm accent, separate from links */
 :not(pre) > code,
 li > code,
 p > code,
 td > code,
 th > code,
 blockquote > code {
-  background-color: #25282A !important;
-  color: #D6C58E !important;
-  padding: 0.08em 0.32em !important;
-  border-radius: 4px !important;
-  border: 1px solid #31363A !important;
-  font-size: 0.92em !important;
+  background-color: var(--md-inline-code-bg);
+  color: var(--md-inline-code-color);
+  padding: 0.08em 0.32em;
+  border-radius: var(--md-inline-code-radius);
+  border: 1px solid var(--md-inline-code-border);
+  font-size: 0.92em;
 }
 
 /* Code blocks: slightly cooler and more technical */
 pre {
-  background-color: #242628 !important;
-  border: 1px solid #31363A !important;
-  border-radius: 6px !important;
-  padding: 0.9em 1em !important;
+  background-color: var(--md-pre-bg);
+  border: 1px solid var(--md-code-border);
+  border-radius: var(--md-block-radius);
+  padding: 0.9em 1em;
 }
 
 pre code {
-  background: transparent !important;
-  color: #C8D3DA !important;
-  border: none !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  font-size: 0.95em !important;
+  background: transparent;
+  color: var(--md-pre-color);
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.95em;
 }
 
 /* Blockquotes: gentle separation */
 blockquote {
-  background: #202325 !important;
-  border-left: 4px solid #5A6460 !important;
-  padding: 0.15em 1em !important;
-  margin-left: 0 !important;
-  color: #C7CEC8 !important;
+  background: var(--md-blockquote-bg);
+  border-left: 4px solid var(--md-blockquote-border);
+  padding: 0.15em 1em;
+  margin-left: 0;
+  color: var(--md-blockquote-color);
 }
 
 /* Tables */
 table {
-  border-collapse: collapse !important;
+  border-collapse: collapse;
 }
 
 th {
-  background-color: #222528 !important;
-  color: #D8D4CC !important;
+  background-color: var(--md-table-header-bg);
+  color: var(--md-heading-color);
 }
 
 td {
-  background-color: #1F2123 !important;
+  background-color: var(--md-table-cell-bg);
 }
 
 th, td {
-  border: 1px solid #32363A !important;
-  padding: 0.45em 0.7em !important;
+  border: 1px solid var(--md-table-border);
+  padding: 0.45em 0.7em;
 }
 
 /* Horizontal rules */
 hr {
-  border: none !important;
-  border-top: 1px solid #34383C !important;
+  border: none;
+  border-top: 1px solid var(--md-hr-color);
 }
 
 /* Optional: keyboard-style tokens if present */
 kbd {
-  background: #2A2D30 !important;
-  color: #D4D0C8 !important;
-  border: 1px solid #3A3F44 !important;
-  border-bottom-color: #4A5056 !important;
-  border-radius: 4px !important;
-  padding: 0.08em 0.35em !important;
-  font-size: 0.9em !important;
+  background: var(--md-kbd-bg);
+  color: var(--md-kbd-color);
+  border: 1px solid var(--md-kbd-border);
+  border-bottom-color: var(--md-kbd-border-bottom);
+  border-radius: var(--md-inline-code-radius);
+  padding: 0.08em 0.35em;
+  font-size: 0.9em;
 }
